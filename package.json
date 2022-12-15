@@ -1,0 +1,20 @@
+{
+  "name": "dsp-archif22-tp-mongodb-spoti",
+  "version": "1.0.0",
+  "description": "spotify 2.0 is here !",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon"
+  },
+  "author": "Mohamed SEKKOUME",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.8.0"
+  },
+  "devDependencies": {
+    "cors": "^2.8.5",
+    "nodemon": "^2.0.20"
+  }
+}
