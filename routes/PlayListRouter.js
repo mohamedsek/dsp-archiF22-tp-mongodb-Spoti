@@ -1,10 +1,11 @@
 const PlayListRouter = require('express').Router();
 const PlayListController = require('../controllers/PlayListController')
 
-PlayListRouter.get('/getplaylist/:id',PlayListController.getPlayList)
+PlayListRouter.get('/all',PlayListController.getAllPlayLists)
+PlayListRouter.get('/:id',PlayListController.getPlayList)
 PlayListRouter.post('/addplaylist',PlayListController.addPlayList)
-PlayListRouter.post('/updateplaylist',PlayListController.updatePlayList)
-PlayListRouter.post('/deleteplaylist',PlayListController.deletePlayList)
+PlayListRouter.put('/:id',PlayListController.updatePlayList)
+PlayListRouter.delete('/:id',PlayListController.deletePlayList)
 
 
 module.exports = PlayListRouter

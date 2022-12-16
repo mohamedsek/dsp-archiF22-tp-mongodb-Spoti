@@ -1,10 +1,11 @@
 const UserRouter = require('express').Router();
 const UserController = require('../controllers/UserController')
 
-UserRouter.get('/getuser/:id',UserController.getUser)
+UserRouter.get('/all',UserController.getAllUsers)
+UserRouter.get('/:id',UserController.getUser)
 UserRouter.post('/adduser',UserController.addUser)
-UserRouter.post('/updateuser',UserController.updateUser)
-UserRouter.post('/deleteuser',UserController.deleteUser)
+UserRouter.put('/:id',UserController.updateUser)
+UserRouter.delete('/:id',UserController.deleteUser)
 
 
 module.exports = UserRouter
