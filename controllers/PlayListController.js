@@ -26,6 +26,7 @@ exports.getPlayList = async (req, res, next) => {
 }
 exports.addPlayList = async (req, res, next) => {
     try {
+        console.log('<<<<<<<<<<<<<<<<<<' + req.body.songs)
         const newPlayList = new PlayListModel(req.body);
         newPlayList.save((err, PlayList) => {
             if (err) {
