@@ -5,7 +5,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
-//const UserRoute = require("./routes/UserRouter")
+const UserRoute = require("./routes/UserRouter")
+const SongRoute = require("./routes/SongRouter")
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://127.0.0.1:27017/spoti",{useNewUrlParser: true});
@@ -19,6 +20,7 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json())
 
-app.use("/", UserRoute)
+app.use("/user", UserRoute)
+app.use("/song", SongRoute)
 
 app.listen(port, ()=>{console.log('[Server ] is running on : ${port}')});
