@@ -1,8 +1,8 @@
 const UserModel = require('../models/UserModel')
+const SongModel = require('../models/SongModel')
 
 exports.getAllUsers = async (req, res, next) => {
     try {
-        console.log(req.body)
 
         let User = await UserModel.find({}, function (error, User) {
             if (error) console.log(error);
@@ -15,7 +15,6 @@ exports.getAllUsers = async (req, res, next) => {
 
 exports.getUser = async (req, res, next) => {
     try {
-        console.log(req.params)
 
         let user = await UserModel.findById({ _id: req.params.id }, function (error, user) {
             if (error) console.log(error);
@@ -56,9 +55,10 @@ exports.updateUser = async (req, res, next) => {
 }
 exports.deleteUser = async (req, res, next) => {
     try {
-        console.log(req.params)
-
         let User = await UserModel.findByIdAndDelete(req.params.id, (error, User) => {
+            console.log(User)
+            console.log(User._id)
+            let Song = SongModel.deleteMany({artist: User._id})
             if (error) console.log(error);
             res.json({
                 message : "user deleted succesfully"
